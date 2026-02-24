@@ -69,7 +69,8 @@ $(foreach MCU,$(MCU_TYPES),$(eval SVD_$(MCU) := $(wildcard $(HAL_FOLDER_$(MCU))/
 
 .PHONY : clean all binary $(foreach MCU,$(MCU_TYPES),$(call lc,$(MCU)))
 ALL_TARGETS := $(foreach MCU,$(MCU_TYPES),$(TARGETS_$(MCU)))
-all : $(ALL_TARGETS)
+# all : $(ALL_TARGETS)
+all: $(filter TENFY_3S_F421,$(ALL_TARGETS))
 
 # create targets for compiling one mcu type, eg "make f421"
 define CREATE_TARGET
